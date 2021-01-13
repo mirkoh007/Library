@@ -20,7 +20,7 @@ public interface UserService {
     User findByID(Long id);
 
     /**
-     * This oprion will delete user by matchig ID
+     * This option will delete user by matching ID
      * @param id - id of the user to be deleted
      */
     void delete(Long id);
