@@ -13,4 +13,5 @@ public class BookPrototype {
                 .withTitle("Pjevajmo do Zore")
                 .build();
     }
+
 }
