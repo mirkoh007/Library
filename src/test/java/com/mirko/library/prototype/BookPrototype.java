@@ -12,6 +12,7 @@ public class BookPrototype {
                 .withPublisher("Ruskaja Knjigaja")
                 .withTitle("Pjevajmo do Zore")
                 .build();
+        
     }
 
 }
