@@ -28,6 +28,15 @@ public class Book extends AbstractEntity {
 
     }
 
+
+    public Book(String title, String authorName, String publisher, LocalDate dateOfPublishing) {
+        super();
+        this.title = title;
+        this.authorName = authorName;
+        this.publisher = publisher;
+        this.dateOfPublishing = dateOfPublishing;
+    }
+
     public static class Builder{
 
         private Long id;

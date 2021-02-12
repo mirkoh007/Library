@@ -33,7 +33,7 @@ public class BookController {
         this.bookDTOToBook = bookDTOToBook;
     }
 
-    @GetMapping
+    @GetMapping("/findAll")
     @ApiOperation(value = "This function returns all books from database")
     public ResponseEntity<List<BookDTO>> getAllBooks() {
         log.info("Method getAllBooks was called");
