@@ -1,0 +1,10 @@
+com.mirko.library
+com.mirko.library.abstractclasses
+com.mirko.library.config
+com.mirko.library.controller
+com.mirko.library.dto
+com.mirko.library.errorhandler
+com.mirko.library.model
+com.mirko.library.prototype
+com.mirko.library.repository
+com.mirko.library.service
