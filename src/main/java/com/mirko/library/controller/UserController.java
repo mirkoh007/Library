@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @RestController
@@ -24,7 +24,7 @@ public class UserController {
     private final UserDTOToUser userDTOToUser;
     private final UserToUserDTO userToUserDTO;
     private final UserService userService;
-    private UtilClass utilClass;
+    private final UtilClass utilClass;
 
 
     public UserController(UserToUserDTOOut userToUserDTOOut,
@@ -111,7 +111,7 @@ public class UserController {
 
     @PutMapping(value = "/{id}")
     @ApiOperation(value = "This option edits user details")
-    public ResponseEntity<UserDTOOut> editUser(@Valid @RequestBody UserDTO userDTO, @PathVariable @NotNull Long id){
+    public ResponseEntity<UserDTOOut> editUser(@Valid @RequestBody UserDTO userDTO, @PathVariable @NotBlank Long id){
         if(!id.equals(userDTO.getId())){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
