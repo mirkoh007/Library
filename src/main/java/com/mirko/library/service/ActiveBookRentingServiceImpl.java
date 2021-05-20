@@ -136,7 +136,7 @@ public class ActiveBookRentingServiceImpl implements ActiveBookRentingService{
         }
 
 //      all book-copies in database that belong to certain book
-        List<BookCopyIDsDTO> listOfAllBookCopiesForBook = findAllBookCopiesForBook(id);
+//        List<BookCopyIDsDTO> listOfAllBookCopiesForBook = findAllBookCopiesForBook(id);
 
         return listOfRentedCopiesForBook;
 
@@ -208,7 +208,12 @@ public class ActiveBookRentingServiceImpl implements ActiveBookRentingService{
     }
 
     private Book doesExists(Long id) throws IllegalArgumentException{
-        return bookService.findById(id);
+        Book book =  bookService.findById(id);
+        if(book == null) {
+            throw new IllegalArgumentException("there is no such book");
+        }
+
+        return book;
     }
 
 }
