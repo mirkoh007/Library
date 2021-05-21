@@ -1,9 +1,9 @@
-#Library Application
+# Library Application
 This is a simple project that simulates application for book renting.  
 Main goal was to enable CRUD operations with book, book-copy, user.  
 There is section for tracking rented books and archive.  
 
-###Features  
+### Features  
 For the Book:
 
 
