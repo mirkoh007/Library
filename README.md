@@ -2,6 +2,7 @@
 This is a simple project that simulates application for book renting.  
 Main goal was to enable CRUD operations with book, book-copy, user.  
 There is section for tracking rented books and archive.  
+For storing data is used H2 in memory database.
 
 ### Features  
 For the Book:
