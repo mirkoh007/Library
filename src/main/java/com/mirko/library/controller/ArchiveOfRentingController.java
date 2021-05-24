@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "statistic")
+@RequestMapping(value = "/statistic")
 public class ArchiveOfRentingController {
 
     private static final Logger log = LoggerFactory.getLogger(ArchiveOfRentingController.class);

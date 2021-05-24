@@ -2,9 +2,7 @@ package com.mirko.library.model;
 
 import com.mirko.library.abstractclasses.AbstractEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +24,10 @@ public class User extends AbstractEntity {
     @Column(nullable = false, length = 64)
     private String password;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     public User() {
     }
 
@@ -37,36 +39,42 @@ public class User extends AbstractEntity {
         private String userName;
         private String email;
         private String password;
+        private Role role;
 
         public Builder() {}
 
-        public Builder withId(Long id){
+        public Builder withId(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder withFirstName(String firstName){
+        public Builder withFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder withLastName(String lastName){
+        public Builder withLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder withUserName(String userName){
+        public Builder withUserName(String userName) {
             this.userName = userName;
             return this;
         }
 
-        public Builder withEmail(String email){
+        public Builder withEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder withPassword(String password){
+        public Builder withPassword(String password) {
             this.password = password;
+            return this;
+        }
+
+        public Builder withRole(Role role) {
+            this.role = role;
             return this;
         }
 
@@ -78,6 +86,7 @@ public class User extends AbstractEntity {
             user.userName = this.userName;
             user.email = this.email;
             user.password = this.password;
+            user.role = this.role;
 
             return user;
         }
@@ -123,15 +132,24 @@ public class User extends AbstractEntity {
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", id=" + id +
+                ", role=" + role +
                 '}';
     }
 
