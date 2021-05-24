@@ -61,7 +61,6 @@ public class BookCopyController {
 
         return ResponseEntity.ok(rentedBookCopiesIDsToRentedBookCopiesIDsDTO.convert(activeBookRentingRepository.findByBookId(book_id)));
 
-
     }
 
     @PostMapping
