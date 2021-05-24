@@ -51,7 +51,7 @@ public interface ArchiveOfRentingService {
      * @param maxDaysForRenting - defined renting period in days
      * @param howMany - how many books should be obtained from database (eg - give me 3 overdue books)
      * @return - returns specific number of overdue books defined with howMany, matching with
-     * defined maximum days for renting -> maxDaysForRenting
+     * defined maximum days for renting  maxDaysForRenting
      */
 
     List<ArchiveOfRenting> findSpecificNumberOverdueBooks(int maxDaysForRenting, Long howMany);
