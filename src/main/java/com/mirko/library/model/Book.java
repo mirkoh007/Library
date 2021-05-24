@@ -28,7 +28,6 @@ public class Book extends AbstractEntity {
 
     }
 
-
     public Book(String title, String authorName, String publisher, LocalDate dateOfPublishing) {
         super();
         this.title = title;
@@ -37,7 +36,7 @@ public class Book extends AbstractEntity {
         this.dateOfPublishing = dateOfPublishing;
     }
 
-    public static class Builder{
+    public static class Builder {
 
         private Long id;
         private String title;
@@ -45,34 +44,35 @@ public class Book extends AbstractEntity {
         private String publisher;
         private LocalDate dateOfPublishing;
 
-        public Builder() {}
+        public Builder() {
+        }
 
         public Builder withID(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder withTitle(String title){
+        public Builder withTitle(String title) {
             this.title = title;
             return this;
         }
 
-        public Builder withAuthorName(String authorName){
+        public Builder withAuthorName(String authorName) {
             this.authorName = authorName;
             return this;
         }
 
-        public Builder withPublisher(String publisher){
+        public Builder withPublisher(String publisher) {
             this.publisher = publisher;
             return this;
         }
 
-        public Builder withDateOfPublishig(LocalDate dateOfPublishig){
+        public Builder withDateOfPublishig(LocalDate dateOfPublishig) {
             this.dateOfPublishing = dateOfPublishig;
             return this;
         }
 
-        public Book build(){
+        public Book build() {
             Book book = new Book();
             book.id = this.id;
             book.title = this.title;
@@ -82,7 +82,7 @@ public class Book extends AbstractEntity {
 
             return book;
         }
-}
+    }
 
     public String getTitle() {
         return title;

@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @IdClass(ActiveBookRentID.class)
 @Table(name = "rentedbooks")
-public class ActiveBookRenting{
+public class ActiveBookRenting {
 
     @Id
     private Long bookCopyId;
@@ -23,38 +23,39 @@ public class ActiveBookRenting{
     public ActiveBookRenting() {
     }
 
-    public static class Builder{
+    public static class Builder {
 
         private LocalDate dateOfRenting;
         private Long bookId;
         private Long bookCopyId;
         private Long userId;
 
-        public Builder() {}
+        public Builder() {
+        }
 
-        public Builder withDateOfRenting(LocalDate dateOfRenting){
+        public Builder withDateOfRenting(LocalDate dateOfRenting) {
             this.dateOfRenting = dateOfRenting;
             return this;
         }
 
-        public Builder withBookID(Long bookId){
+        public Builder withBookID(Long bookId) {
             this.bookId = bookId;
             return this;
         }
 
-        public Builder withBookCopyID(Long bookCopyId){
+        public Builder withBookCopyID(Long bookCopyId) {
             this.bookCopyId = bookCopyId;
             return this;
         }
 
-        public Builder withUserID(Long userId){
+        public Builder withUserID(Long userId) {
             this.userId = userId;
             return this;
         }
 
-        public ActiveBookRenting build(){
+        public ActiveBookRenting build() {
             ActiveBookRenting activeBookRenting = new ActiveBookRenting();
-            activeBookRenting.dateOfRenting =this.dateOfRenting;
+            activeBookRenting.dateOfRenting = this.dateOfRenting;
             activeBookRenting.userId = this.userId;
             activeBookRenting.bookCopyId = this.bookCopyId;
             activeBookRenting.bookId = this.bookId;

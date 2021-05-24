@@ -1,5 +1,7 @@
 package com.mirko.library.dto;
 
+import com.mirko.library.model.Role;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -28,6 +30,8 @@ public class UserDTOOut {
     @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")
     private String email;
 
+    private Role role;
+
     public UserDTOOut() {
     }
 
@@ -38,6 +42,7 @@ public class UserDTOOut {
         private String lastName;
         private String userName;
         private String email;
+        private Role role;
 
         public Builder ()  {}
 
@@ -66,6 +71,11 @@ public class UserDTOOut {
             return this;
         }
 
+        public Builder withRole(Role role) {
+            this.role = role;
+            return this;
+        }
+
         public UserDTOOut build(){
             UserDTOOut userDTOOut = new UserDTOOut();
             userDTOOut.id = this.id;
@@ -73,6 +83,7 @@ public class UserDTOOut {
             userDTOOut.lastName = this.lastName;
             userDTOOut.userName = this.userName;
             userDTOOut.email = this.email;
+            userDTOOut.role = this.role;
 
             return userDTOOut;
         }
@@ -119,6 +130,14 @@ public class UserDTOOut {
         this.email = email;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserDTOOut{" +
@@ -127,6 +146,7 @@ public class UserDTOOut {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
+                ", role=" + role +
                 '}';
     }
 
@@ -139,11 +159,12 @@ public class UserDTOOut {
                 firstName.equals(that.firstName) &&
                 lastName.equals(that.lastName) &&
                 userName.equals(that.userName) &&
-                email.equals(that.email);
+                email.equals(that.email) &&
+                role.equals(that.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, userName, email);
+        return Objects.hash(id, firstName, lastName, userName, email, role);
     }
 }
