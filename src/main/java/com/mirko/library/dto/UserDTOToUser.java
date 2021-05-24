@@ -2,6 +2,7 @@ package com.mirko.library.dto;
 
 import com.mirko.library.model.User;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,6 +10,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class UserDTOToUser implements Converter<UserDTO, User> {
+
+    private final PasswordEncoder passwordEncoder;
+
+    public UserDTOToUser(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public User convert(UserDTO userDTO) {
@@ -18,8 +25,9 @@ public class UserDTOToUser implements Converter<UserDTO, User> {
                .withFirstName(userDTO.getFirstName())
                .withLastName(userDTO.getLastName())
                .withUserName(userDTO.getUserName())
-               .withPassword(userDTO.getPassword())
+               .withPassword(passwordEncoder.encode(userDTO.getPassword()))
                .withEmail(userDTO.getEmail())
+               .withRole(userDTO.getRole())
                .build();
     }
 

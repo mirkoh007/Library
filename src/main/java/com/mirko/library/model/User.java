@@ -28,7 +28,7 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User() {
+    private User() {
     }
 
     public static class Builder {

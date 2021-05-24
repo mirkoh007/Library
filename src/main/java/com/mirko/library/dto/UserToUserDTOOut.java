@@ -18,6 +18,7 @@ public class UserToUserDTOOut implements Converter<User, UserDTOOut> {
                 .withLastName(user.getLastName())
                 .withUserName(user.getUserName())
                 .withEmail(user.getEmail())
+                .withRole(user.getRole())
                 .build();
     }
 

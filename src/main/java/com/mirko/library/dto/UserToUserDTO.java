@@ -18,6 +18,7 @@ public class UserToUserDTO implements Converter<User, UserDTO> {
                 .withUserName(user.getUserName())
                 .withPassword(user.getPassword())
                 .withEmail(user.getEmail())
+                .withRole(user.getRole())
                 .build();
     }
 

@@ -1,5 +1,7 @@
 package com.mirko.library.dto;
 
+import com.mirko.library.model.Role;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -30,6 +32,8 @@ public class UserDTO {
     @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")
     private String email;
 
+    private Role role;
+
     public UserDTO() {
     }
 
@@ -40,6 +44,7 @@ public class UserDTO {
         private String userName;
         private String password;
         private String email;
+        private Role role;
 
         public Builder () {}
 
@@ -73,6 +78,11 @@ public class UserDTO {
             return this;
         }
 
+        public Builder withRole(Role  role) {
+            this.role = role;
+            return this;
+        }
+
         public UserDTO build(){
             UserDTO userDTO = new UserDTO();
             userDTO.id = this.id;
@@ -81,6 +91,7 @@ public class UserDTO {
             userDTO.userName = this.userName;
             userDTO.password = this.password;
             userDTO.email = this.email;
+            userDTO.role = this.role;
 
             return userDTO;
         }
@@ -134,6 +145,14 @@ public class UserDTO {
         this.email = email;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserDTO{" +
@@ -143,6 +162,7 @@ public class UserDTO {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", role=" + role +
                 '}';
     }
 }
