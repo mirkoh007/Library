@@ -28,7 +28,7 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private User() {
+    public User() {
     }
 
     public static class Builder {
@@ -41,7 +41,8 @@ public class User extends AbstractEntity {
         private String password;
         private Role role;
 
-        public Builder() {}
+        public Builder() {
+        }
 
         public Builder withId(Long id) {
             this.id = id;
@@ -78,7 +79,7 @@ public class User extends AbstractEntity {
             return this;
         }
 
-        public User build(){
+        public User build() {
             User user = new User();
             user.id = this.id;
             user.firstName = this.firstName;

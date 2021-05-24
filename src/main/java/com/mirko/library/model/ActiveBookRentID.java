@@ -9,7 +9,8 @@ public class ActiveBookRentID implements Serializable {
 
     private Long userId;
 
-    public ActiveBookRentID(){}
+    public ActiveBookRentID() {
+    }
 
     @Override
     public boolean equals(Object o) {

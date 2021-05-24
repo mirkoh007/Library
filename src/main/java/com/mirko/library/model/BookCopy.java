@@ -14,7 +14,6 @@ public class BookCopy extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     private Book book;
 
-
     public BookCopy() {
     }
 
@@ -23,26 +22,27 @@ public class BookCopy extends AbstractEntity {
         private String serialNumber;
         private Book book;
 
-        public Builder() {}
+        public Builder() {
+        }
 
-        public Builder withSerial(String serialNumber){
+        public Builder withSerial(String serialNumber) {
             this.serialNumber = serialNumber;
             return this;
         }
 
-        public Builder withBook (Book book){
+        public Builder withBook(Book book) {
             this.book = book;
             return this;
         }
 
-        public BookCopy build(){
+        public BookCopy build() {
             BookCopy bookCopy = new BookCopy();
             bookCopy.serialNumber = this.serialNumber;
             bookCopy.book = this.book;
 
             return bookCopy;
         }
-}
+    }
 
     public String getSerialNumber() {
         return serialNumber;
